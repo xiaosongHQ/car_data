@@ -1,8 +1,16 @@
 <?php
     class Base
     {
-        protected function test($a){
-            return $a+$a;
+        public $pdo;
+        public function __construct(){//构造方法  链接数据库  设置不超时
+            ini_set('max_execution_time', '0');    //设置运行不超时
+            try {
+                $pdo = new PDO('mysql:host=47.52.204.201;dbname=car_data','xiaosongHQ','Lx5201314.');
+                $this->pdo = $pdo;
+            } catch (PDOException $e) {
+                echo 'error:'.$e->getMessage();
+                return '数据库连接遇到了问题';
+            }
         }
 
         //获取网页源代码
@@ -22,5 +30,19 @@
             $body = mb_convert_encoding($body, 'utf-8', 'GBK,UTF-8,ASCII');
             $message = curl_getinfo($curl,CURLINFO_HTTP_CODE);
             return ['body'=>$body,'message'=>$message];
+        }
+
+
+        public function get_code(){//获得编号
+             $str="QWERTYUIOPASDFGHJKLZXCVBNM1234567890qwertyuiopasdfghjklzxcvbnm";
+            str_shuffle($str);
+            $name=substr(str_shuffle($str),18,18);
+            return 'WS'.$name.$this->getMillisecond();
+        }
+
+
+        protected function getMillisecond() {//获得毫秒时间
+            list($t1, $t2) = explode(' ', microtime());
+            return (float)sprintf('%.0f',(floatval($t1)+floatval($t2))*1000);
         }
     }
