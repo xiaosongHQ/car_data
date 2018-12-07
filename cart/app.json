@@ -1,0 +1,41 @@
+{
+  "pages":[
+    "pages/cart/cart",
+    "pages/index/index",
+    "pages/logs/logs"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#ddd",
+    "navigationBarTitleText": "车时代E车购",
+    "navigationBarTextStyle":"black"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath":"images/icons/btn-tabs_01.png",
+        "selectedIconPath":"images/icons/btn-tabs_07.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/cart/cart",
+        "iconPath":"images/icons/btn-tabs_03.png",
+        "selectedIconPath":"images/icons/btn-tabs_08.png",
+        "text": "车"
+      },
+      {
+        "pagePath": "pages/logs/logs",
+        "iconPath":"images/icons/btn-tabs_05.png",
+        "selectedIconPath":"images/icons/btn-tabs_09.png",
+        "text": "日志"
+      },
+      {
+        "pagePath": "pages/logs/logs",
+        "iconPath":"images/icons/btn-tabs_06.png",
+      "selectedIconPath":"images/icons/btn-tabs_10.png",
+        "text": "个人中心"
+      }
+    ]
+  }
+}
